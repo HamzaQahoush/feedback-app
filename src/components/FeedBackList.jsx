@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import FeedbackItem from "./FeedbackItem";
 
 function FeedBackList(props) {
-  const { feedback } = props;
+  const { feedback , handleDelete} = props;
+ 
   return (
     <div>
       {feedback || feedback.length ? (
         feedback.map((feedback) => (
-          <FeedbackItem key={feedback.id} data={feedback} />
+          <FeedbackItem key={feedback.id} data={feedback} handleDelete={handleDelete} />
         ))
       ) : (
         <h1> Nothing to show</h1>
