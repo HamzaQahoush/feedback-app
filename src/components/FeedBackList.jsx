@@ -7,7 +7,7 @@ function FeedBackList(props) {
     <div>
       {feedback || feedback.length ? (
         feedback.map((feedback) => (
-          <FeedbackItem key={feedback.id} feedback={feedback} />
+          <FeedbackItem key={feedback.id} data={feedback} />
         ))
       ) : (
         <h1> Nothing to show</h1>
