@@ -22,7 +22,7 @@ function FeedBackForm({ addNewFeedback }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newFeedBack = {
-      text,
+      text, // text: text from state
       rating,
       id: Math.floor(Math.random() * 1000),
     };
