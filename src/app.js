@@ -33,10 +33,7 @@ function App() {
                 <>
                   <FeedBackForm addNewFeedback={addNewFeedback} />
                   <FeedBackStats feedback={feedback} />
-                  <FeedBackList
-                    feedback={feedback}
-                    handleDelete={deleteFeedBack}
-                  />
+                  <FeedBackList handleDelete={deleteFeedBack} />
                 </>
               }
             ></Route>

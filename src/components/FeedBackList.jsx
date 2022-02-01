@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
 import FeedbackItem from "./FeedbackItem";
 import { motion, AnimatePresence } from "framer-motion";
-
-function FeedBackList(props) {
-  const { feedback, handleDelete } = props;
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
+function FeedBackList({ handleDelete }) {
+  const { feedback } = useContext(FeedbackContext);
 
   return (
     <div>
@@ -41,13 +41,13 @@ function FeedBackList(props) {
     // </div>
   );
 }
-FeedBackList.propTypes = {
-  feedback: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-    })
-  ),
-};
+// FeedBackList.propTypes = {
+//   feedback: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       text: PropTypes.string.isRequired,
+//       rating: PropTypes.number.isRequired,
+//     })
+//   ),
+// };
 export default FeedBackList;
