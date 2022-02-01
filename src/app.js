@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import About from "./pages/About";
+import AboutIconLink from "./components/AboutIconLink";
 import FeedbackData from "./components/data/FeedbackData";
 import FeedBackList from "./components/FeedBackList";
 import FeedBackForm from "./components/FeedBackForm";
@@ -39,6 +40,7 @@ function App() {
           ></Route>
           <Route path="/about" element={<About />} />
         </Routes>
+        <AboutIconLink />
       </div>
     </Router>
   );
