@@ -2,7 +2,10 @@ import { useState } from "react";
 import Button from "./shared/Button";
 import Card from "./shared/Card";
 import RatingSelect from "./RatingSelect";
-function FeedBackForm({ addNewFeedback }) {
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
+function FeedBackForm() {
+  const { addNewFeedback } = useContext(FeedbackContext);
   const [text, setText] = useState("");
   const [msg, setMsg] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
