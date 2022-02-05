@@ -4,7 +4,8 @@ import RatingSelect from "./RatingSelect";
 import { useContext, useEffect, useState } from "react";
 import FeedbackContext from "../context/FeedbackContext";
 function FeedBackForm() {
-  const { addNewFeedback, editFeedback } = useContext(FeedbackContext);
+  const { addNewFeedback, editFeedback, updatedFeedBack } =
+    useContext(FeedbackContext);
   const [text, setText] = useState("");
   const [msg, setMsg] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -28,8 +29,11 @@ function FeedBackForm() {
       rating,
       id: Math.floor(Math.random() * 1000),
     };
-
-    addNewFeedback(newFeedBack);
+    if (editFeedback.edit == true) {
+      updatedFeedBack(editFeedback.item.id, newFeedBack);
+    } else {
+      addNewFeedback(newFeedBack);
+    }
     setText("");
   };
 

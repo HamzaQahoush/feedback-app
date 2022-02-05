@@ -14,7 +14,6 @@ if (status==404) {
 }
 
 
-
 ```
 
 - we can use `useNavigate hook` <br>
@@ -26,3 +25,6 @@ const onClick=()=>{
     navigate('/home')
 }
 ```
+
+- ## Section 6 context API :
+- provide a way to pass data through the component tree without having to pass props down manually ay every level.
