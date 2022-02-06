@@ -1,15 +1,37 @@
-import { createContext, useState } from "react";
-import FeedbackData from "../components/data/FeedbackData";
+import { createContext, useState, useEffect } from "react";
 const FeedbackContext = createContext();
 
 //create provider
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState(FeedbackData);
+  const [feedback, setFeedback] = useState([]);
   const [editFeedback, setEditFeedback] = useState({
     item: {},
     edit: false,
   });
+  const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   fetchFeedback();
+  //   //fetch
+  // }, []);
+  // const fetchFeedback = async () => {
+  //   const reponse = await fetch(
+  //     "http://localhost:5000/feedback?_sort=id&_order=desc"
+  //   );
+  //   const FeedbackData = await reponse.json();
+  //   setFeedback(FeedbackData);
+  // };
+
+  useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+    fetch("http://localhost:5000/feedback?_sort=id&_order=desc")
+      .then((response) => response.json())
+      .then((data) => setFeedback(data));
+    setIsLoading(false);
+
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
+
   const deleteFeedBack = (id) => {
     if (window.confirm("are you sure?")) {
       const newList = feedback.filter((item) => item.id !== id);
@@ -41,6 +63,7 @@ export const FeedbackProvider = ({ children }) => {
       value={{
         feedback,
         editFeedback,
+        isLoading,
         deleteFeedBack,
         addNewFeedback,
         feedbackEdit,
