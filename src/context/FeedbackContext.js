@@ -20,14 +20,15 @@ export const FeedbackProvider = ({ children }) => {
   //   );
   //   const FeedbackData = await reponse.json();
   //   setFeedback(FeedbackData);
+  //   setIsLoading(false);
   // };
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
     fetch("http://localhost:5000/feedback?_sort=id&_order=desc")
       .then((response) => response.json())
-      .then((data) => setFeedback(data));
-    setIsLoading(false);
+      .then((data) => setFeedback(data))
+      .then(() => setIsLoading(false));
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
