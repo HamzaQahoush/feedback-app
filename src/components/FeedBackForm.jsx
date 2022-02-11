@@ -27,7 +27,6 @@ function FeedBackForm() {
     const newFeedBack = {
       text, // text: text from state
       rating,
-      id: Math.floor(Math.random() * 1000),
     };
     if (editFeedback.edit === true) {
       updatedFeedBack(editFeedback.item.id, newFeedBack);
