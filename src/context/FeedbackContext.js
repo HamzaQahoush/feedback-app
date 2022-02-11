@@ -25,7 +25,7 @@ export const FeedbackProvider = ({ children }) => {
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
-    fetch("http://localhost:5000/feedback?_sort=id&_order=desc")
+    fetch("/feedback?_sort=id&_order=desc")
       .then((response) => response.json())
       .then((data) => setFeedback(data))
       .then(() => setIsLoading(false));
